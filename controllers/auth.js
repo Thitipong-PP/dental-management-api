@@ -91,3 +91,16 @@ exports.login = async (req, res, next) => {
         console.error(err.message);
     }
 };
+
+// @desc    Get current Logged in user
+// @route   POST /auth/me
+// @access  Private
+exports.me = async (req, res, next) => {
+    // Find user by id
+    const user = await User.findById(req.user.id);
+
+    res.status(200).json({
+        success: true,
+        data: user
+    });
+};
