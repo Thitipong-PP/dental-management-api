@@ -1,10 +1,11 @@
 const express = require('express');
 const dotenv = require('dotenv');
 const connectDB = require('./config/database');
+const bookings = require('./routes/bookings');
 const cookieParser = require('cookie-parser');
 
 // Read env file
-dotenv.config({path:'./config/config.env'});
+dotenv.config({ path: './config/config.env' });
 
 // Connect to database
 connectDB();
@@ -18,6 +19,7 @@ const auth = require('./routes/auth');
 
 // Router
 app.use('/auth', auth);
+app.use('/api/bookings', bookings);
 
 // Server port and listen
 const PORT = process.env.PORT || 5003;
