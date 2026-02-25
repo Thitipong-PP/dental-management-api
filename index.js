@@ -11,6 +11,12 @@ connectDB();
 const app = express();
 app.use(express.json());
 
+// Route files
+const auth = require('./routes/auth');
+
+// Router
+app.use('/auth', auth);
+
 // Server port and listen
 const PORT = process.env.PORT || 5003;
 const server = app.listen(
