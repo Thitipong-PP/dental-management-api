@@ -58,11 +58,11 @@ exports.createDentist = async (req, res, next) => {
         const {name, yearsOfExperience, areaOfExpertise} = req.body;
 
         // Create a dentist in database
-        const dentist = await Dentist.create(
+        const dentist = await Dentist.create({
             name,
             yearsOfExperience,
             areaOfExpertise
-        );
+        });
 
         res.status(201).json({
             success: true,
@@ -90,7 +90,7 @@ exports.updateDentist = async (req, res, next) => {
             name,
             yearsOfExperience,
             areaOfExpertise
-        }, {
+        },{
             new: true,
             runValidators: true
         });

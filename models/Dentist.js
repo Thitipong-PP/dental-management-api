@@ -10,7 +10,7 @@ const DentistSchema = new mongoose.Schema({
     yearsOfExperience: {
         type: Number,
         required: [true, 'Please add years of experience'],
-        min: 0
+        min: [0, 'The years of experience cannot be negative number']
     },
     areaOfExpertise: {
         type: String,

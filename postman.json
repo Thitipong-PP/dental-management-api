@@ -258,6 +258,16 @@
         {
           "name": "Get all bookings",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -276,6 +286,16 @@
         {
           "name": "Get a booking",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "GET",
             "header": [],
             "url": {
@@ -291,7 +311,7 @@
               "variable": [
                 {
                   "key": "id",
-                  "value": ""
+                  "value": "1"
                 }
               ]
             }
@@ -301,6 +321,16 @@
         {
           "name": "Create a booking",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "POST",
             "header": [],
             "url": {
@@ -319,6 +349,16 @@
         {
           "name": "Update a booking",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "PUT",
             "header": [],
             "url": {
@@ -344,6 +384,16 @@
         {
           "name": "Delete a booking",
           "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
             "method": "DELETE",
             "header": [],
             "url": {
@@ -360,6 +410,190 @@
                 {
                   "key": "id",
                   "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Dentist",
+      "item": [
+        {
+          "name": "Get All dentist",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{Root}}/api/dentist",
+              "host": [
+                "{{Root}}"
+              ],
+              "path": [
+                "api",
+                "dentist"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get a dentist",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{Root}}/api/dentist/:id",
+              "host": [
+                "{{Root}}"
+              ],
+              "path": [
+                "api",
+                "dentist",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "699fcc1194d660053f0b2978"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create a dentist",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"DentistDummy\",\n    \"yearsOfExperience\": 1000,\n    \"areaOfExpertise\": \"animal\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Root}}/api/dentist",
+              "host": [
+                "{{Root}}"
+              ],
+              "path": [
+                "api",
+                "dentist"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update a dentist",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"name\": \"DentistDummy\",\n    \"yearsOfExperience\": 1000,\n    \"areaOfExpertise\": \"human\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{Root}}/api/dentist/:id",
+              "host": [
+                "{{Root}}"
+              ],
+              "path": [
+                "api",
+                "dentist",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "699fcc1194d660053f0b2978"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete a dentist",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{Root}}/api/dentist/:id",
+              "host": [
+                "{{Root}}"
+              ],
+              "path": [
+                "api",
+                "dentist",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": "699fcc1194d660053f0b2978"
                 }
               ]
             }
@@ -396,7 +630,7 @@
   "variable": [
     {
       "key": "Root",
-      "value": "http://localhost:5003"
+      "value": ""
     }
   ]
 }
