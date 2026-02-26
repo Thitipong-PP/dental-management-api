@@ -9,7 +9,6 @@ const BookingSchema = new mongoose.Schema({
     user: {
         type: mongoose.Schema.ObjectId,
         ref: 'User',
-        required: [true, 'Please add a user']
     },
     dentist: {
         type: mongoose.Schema.ObjectId,

@@ -12,14 +12,17 @@ const {
 // Router
 const router = express.Router();
 
+// Auth Middleware
+const {protect, authorize} = require('../middleware/auth');
+
 // Path and method
 router.route('/')
-    .get(getBookings)
-    .post(createBooking);
+    .get(protect, authorize('admin'), getBookings) // Only admin can get all booking
+    .post(protect, authorize('user'), createBooking); // Only user can create booking
 
 router.route('/:id')
-    .get(getBooking)
-    .put(updateBooking)
-    .delete(deleteBooking);
+    .get(protect, getBooking)
+    .put(protect, updateBooking)
+    .delete(protect, deleteBooking);
 
 module.exports = router;
