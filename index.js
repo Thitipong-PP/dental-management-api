@@ -3,6 +3,9 @@ const dotenv = require('dotenv');
 const connectDB = require('./config/database');
 const cookieParser = require('cookie-parser');
 
+const { setServers } = require("node:dns/promises");
+setServers(["1.1.1.1", "8.8.8.8"]);
+
 // Security require
 const mongoSanitize = require('@exortek/express-mongo-sanitize');
 const helmet = require('helmet');
@@ -20,7 +23,7 @@ connectDB();
 // Config rate limiting
 // Max request for windowsMs ms
 const limiter = rateLimit({
-    windowsMs: 10*60*1000,
+    windowMs: 10*60*1000,
     max: 100
 });
 
