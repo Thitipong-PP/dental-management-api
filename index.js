@@ -39,10 +39,12 @@ app.use(cors());
 // Route files
 const auth = require('./routes/auth');
 const bookings = require('./routes/bookings');
+const dentist = require('./routes/dentist');
 
 // Router
 app.use('/api/auth', auth);
 app.use('/api/bookings', bookings);
+app.use('/api/dentist', dentist);
 
 // Server port and listen
 const PORT = process.env.PORT || 5003;
