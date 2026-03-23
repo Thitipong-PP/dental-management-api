@@ -17,9 +17,6 @@ const cors = require('cors');
 // Read env file
 dotenv.config({ path: './config/config.env' });
 
-// Connect to database
-connectDB();
-
 // Config rate limiting
 // Max request for windowsMs ms
 const limiter = rateLimit({
@@ -28,6 +25,16 @@ const limiter = rateLimit({
 });
 
 const app = express();
+// Connect to database
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    res.status(500).json({ success: false, message: "Database Connection Error" });
+  }
+});
+
 app.use(express.json());
 app.use(cookieParser());
 
