@@ -10,11 +10,17 @@ exports.getBookings = async (req, res, next) => {
         query = Booking.find({ user: req.user.id }).populate({
             path: 'dentist',
             select: 'name yearsOfExperience areaOfExpertise'
+        }).populate({
+            path: 'user',
+            select: 'name email'
         });
     } else {
         query = Booking.find().populate({
             path: 'dentist',
             select: 'name yearsOfExperience areaOfExpertise'
+            }).populate({
+            path: 'user',
+            select: 'name email'
         });
     }
 
